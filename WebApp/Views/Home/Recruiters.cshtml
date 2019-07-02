@@ -1,0 +1,36 @@
+﻿@using WebApp.Models
+@using WebApp.ViewModels
+@model TestTableViewModel
+@{
+    ViewBag.Title = "Recruiters";
+}
+
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<div class="container">
+    <div class="form-group">
+        @using (Html.BeginForm())
+        {
+            
+        @Html.TextBoxFor(m => m.FirstName, new { placeholder = "First Name", @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.FirstName, "",new {@class = "text-danger"})
+
+        @Html.TextBoxFor(m => m.LastName, new {placeholder = "Last Name", @class = "form-control"})
+        @Html.ValidationMessageFor(m => m.LastName, "",new {@class = "text-danger"})
+            <input type="submit" value="Save" class="btn btn-primary"/>
+         @Html.ActionLink("Submit get", "Recruiters", new {val = 3}, new {@class = "btn btn-primary"})
+        }
+    </div>
+</div>
+
+<p>Use this area to provide additional information.</p>
+
+
+<script src='@Url.Content("~/Scripts/jquery.validate.js")' type='text/javascript'></script>
+<script src='@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")' type='text/javascript'></script>
